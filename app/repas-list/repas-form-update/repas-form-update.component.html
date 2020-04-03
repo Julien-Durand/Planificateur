@@ -1,0 +1,27 @@
+
+<h2>Modifier {{ data.name | lowercase }}</h2>
+<div class="formulaire">
+  <form [formGroup]="updateRepasForm" (ngSubmit)="onSaveUpdateRepas(data.id)">
+    <div class="group-left">
+      <div class="form-group">
+        <input type="text" [(ngModel)]=" data.name "  class="form-control" formControlName="name">
+      </div>
+    </div>
+    <div class="group-right">
+      <div class="form-group">
+        <select class="form-control" formControlName="jour">
+          <option value="" disabled selected>{{ data.jour }}</option>
+          <option *ngFor="let jour of jours; let i = index" value="{{ jours[i] }}" placeholder="Pour quel jour ?">{{ jours[i] }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <select class="form-control" formControlName="moment">
+          <option value="" disabled selected>{{ data.moment }}</option>
+          <option *ngFor="let moment of moments; let i = index" value="{{ moments[i] }}" placeholder="Midi ou Dîner ?">{{ moments[i] }}</option>
+        </select>
+      </div>
+    </div>
+  <button mat-button class="btn btn-back" matDialogClose>Retour</button>
+  <button class="btn btn-success" [disabled]="updateRepasForm.invalid">Modifier</button>
+  </form>
+</div>

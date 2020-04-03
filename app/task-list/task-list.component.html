@@ -1,0 +1,22 @@
+<div cdkDropList class="list-tasks list-group" (cdkDropListDropped)="drop($event)">
+  <button
+  *ngFor="let task of tasks ; let i = index"
+  [ngClass]="{'list-group-item' : true,
+              'list-group-item-success' : this.tasks[i].status === true}"
+    class="list"
+    (click)="switchStatus(i)"
+    cdkDrag>
+
+      <p class="txtTask pull-left">
+          <span class="txtDate">{{ task.date | date: 'dd/MM' }}:</span><br>
+        {{ task.title }}
+      </p>
+      <button class="btn btn-danger pull-right btn-suppr" (click)="onDeleteTask(task)">
+        <span class="glyphicon glyphicon-trash" style="color: white; font-size: "></span>
+      </button>
+  </button>
+
+
+</div>
+<!-- <button class="btn btn-primary" (click)="OrderByTasksWithDate()"></button>  -->
+<app-task-form *ngIf="isAuth"></app-task-form>

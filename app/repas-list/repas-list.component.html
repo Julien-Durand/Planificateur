@@ -1,0 +1,24 @@
+<div class="zone-repas">
+  <div *ngFor="let jour of jours; let i = index"
+        class="{{ jours[i] }} col-sm-12">
+        <h3>{{ jours[i] }}</h3>
+        <span class="ligne"></span>
+        <div *ngFor="let moment of moments; let u = index"
+              class="{{ moments[u] }} col-sm-6 moment_block">
+              <h4>{{ moments[u] }}</h4>
+              <ng-container *ngFor="let repa of repas; let o = index">
+                 <button mat-raised-button
+                         class="title_repas btn btn-block"
+                         *ngIf="repas[o].jour === jours[i] && repas[o].moment === moments[u]"
+                         (click)="openUpdateDialog(repa)">
+                   <h4>{{ repas[o].name }}</h4>
+                   <button class="btn btn-danger pull-right btn-suppr" (click)="onDeleteRepas(repa)">
+                     <span class="glyphicon glyphicon-trash" style="color: white; font-size: "></span>
+                   </button>
+                 </button>
+              </ng-container>
+        </div>
+  </div>
+  <button *ngIf="isAuth" mat-raised-button (click)="openDialog()" class="btn btn-success">Ajouter un repas</button>
+  <button *ngIf="isAuth" class="btn btn-danger btn-removeAll" (click)="RemoveAllRepas()">Supprimer les repas</button>
+</div>

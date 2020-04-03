@@ -1,0 +1,72 @@
+.zone-repas{
+  float: left;
+  background-color: #1b1c24;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px 0 rgba(0,0,0,0.15);
+  padding: 40px 20px 5px 20px;
+  .Lundi, .Mardi, .Mercredi, .Jeudi, .Vendredi, .Samedi, .Dimanche{
+    h3{
+      text-decoration: underline;
+    }
+    padding-bottom: 25px;
+  }
+
+
+
+  .moment_block{
+
+    .title_repas{
+      margin-top: 5px;
+      background-color: #14151a;
+      padding: 10px 15px;
+      border-radius: 5px;
+      box-shadow: 0 5px 10px 0 rgba(0,0,0,0.15);
+      h4{
+        float: left;
+        margin: 5px 15px 0 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 70%;
+      }
+    }
+  }
+  .Midi{
+    padding: 0;
+  }
+  .Dîner{
+    padding-right: 0;
+  }
+}
+
+.btn-removeAll{
+  margin-left: 35px;
+}
+
+@media only screen and (max-width: 767px) {
+  .zone-repas{
+    width: 100%;
+  }
+  .Dîner{
+    padding-left: 0;
+  }
+}
+
+@media only screen and (max-width: 382px) {
+  .zone-repas{
+    .btn-success{
+      float: left;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    .btn-danger{
+      float: left;
+      width: 100%;
+      margin: 0;
+    }
+    .title_repas{
+      .btn-danger{
+        width: auto;
+      }
+    }
+  }
+}

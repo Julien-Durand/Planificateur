@@ -1,0 +1,30 @@
+
+<h2>Ajouter un repas</h2>
+<div class="formulaire">
+  <form [formGroup]="repasForm" (ngSubmit)="onSaveRepas()">
+    <div class="group-left">
+      <div class="form-group">
+        <input type="text" placeholder="Titre" class="form-control" formControlName="name">
+      </div>
+      <!-- <div class="form-group">
+        <input type="text" placeholder="Une description du repas" class="form-control" formControlName="description">
+      </div> -->
+    </div>
+    <div class="group-right">
+      <div class="form-group">
+        <select class="form-control" formControlName="jour">
+          <option value="" disabled selected>Choisi un jour</option>
+          <option *ngFor="let jour of jours; let i = index" value="{{ jours[i] }}" placeholder="Pour quel jour ?">{{ jours[i] }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <select class="form-control" formControlName="moment">
+          <option value="" disabled selected>Midi ou dîner ?</option>
+          <option *ngFor="let moment of moments; let i = index" value="{{ moments[i] }}" placeholder="Midi ou Dîner ?">{{ moments[i] }}</option>
+        </select>
+      </div>
+    </div>
+  <button mat-button class="btn btn-back" matDialogClose>Retour</button>
+  <button class="btn btn-success" [disabled]="repasForm.invalid">Ajouter</button>
+  </form>
+</div>
